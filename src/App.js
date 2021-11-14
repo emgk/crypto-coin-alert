@@ -128,10 +128,14 @@ function App() {
             <div className="crypto-alert-container">
                 <div className="crypto-alert-container__header">
                     <h1
+                        className="letterpress"
                         onClick={() => {
                             window.location = '/';
                         }}>
-                        Crypto Alert
+                        Crypto Alert{' '}
+                        <span className="crypto-alert-emoji">
+                            {isLoading ? '🚀' : 'up' === state ? '😀' : '🙁'}
+                        </span>
                     </h1>
                 </div>
                 <div className="crypto-alert-container__content">
@@ -180,16 +184,7 @@ function App() {
                     </a>
                 </div>
                 <div className="crypto-alert-footer-section">
-                    Prices provided by{' '}
-                    <a href="https://binance.com/" target="_blank" rel="noreferrer">
-                        Binance
-                    </a>{' '}
-                    (might not be accurate, use at your own risk)
-                </div>
-                <div className="crypto-alert-footer-section">
-                    <a href="https://github.com/emgk" target="_blank" rel="noreferrer">
-                        contact
-                    </a>
+                    Prices might not be accurate, use at your own risk
                 </div>
                 <div className="crypto-alert-footer-section">
                     <a href="https://memes.itsnotmy.site" target="_blank" rel="noreferrer">

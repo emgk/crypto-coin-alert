@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap');
 
 .crypto-alert {
-  background-color: #0a0a0a;
+  animation: gradient 15s ease infinite;
+  background: linear-gradient( -45deg, #000, #393939);
+  background-size: 400% 400%;
+  border-bottom: none;
   height: 100vh;
   position: relative;
   text-align: center;
@@ -9,7 +12,7 @@
   width: 100%;
 
   &.crypto-alert--light {
-    background-color: #fff;
+    background: linear-gradient(-45deg, #d5d5d5, #8aadeb);
   }
 }
 
@@ -34,12 +37,13 @@
 
   &__header h1 {
     cursor: pointer;
-    color: #fff;
-    font: 200 80px 'Roboto', sans-serif;
+    color: #959595;
+    font: 300 80px 'Roboto', sans-serif;
     margin: 0;
+    text-shadow: -0.03em 0 0 red, 0.03em 0 0 cyan;
 
     .crypto-alert--light & {
-      color: grey;
+      color: white;
     }
 
     @media screen and (max-width: 767px) {
@@ -50,9 +54,11 @@
 
 .crypto-alert-price {
   font-size: 7vw;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 3px;
   margin: 30px 0;
+  transition: all 100ms linear;
+  text-shadow: 2px 2px 2px black;
 
   &--up {
     color: green;
@@ -64,6 +70,10 @@
 
   @media screen and (max-width: 767px) {
     font-size: 10vw;
+  }
+
+  .crypto-alert--light & {
+    text-shadow: 2px 2px 2px transparent;
   }
 }
 
@@ -220,6 +230,14 @@
   }
 }
 
-.crypto-alert-footer-github {
-  width: 20px;
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
