@@ -24,6 +24,7 @@ function App() {
     const [state, setState] = useState('');
     const [alertWhen, setAlertWhen] = useState(false);
     const [isPlayed, setIsPlayed] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isDark, setIsDark] = useState(true);
     const [compare, setCompare] = useState('less-than');
 
@@ -82,6 +83,12 @@ function App() {
         if (playMusic && !isPlayed) {
             // play music
             alert?.play();
+            setTimeout(() => {
+                setIsPlaying(true);
+            }, 500);
+            setTimeout(() => {
+                setIsPlaying(false);
+            }, 1800);
             // mark as played
             setIsPlayed(true);
         }
@@ -115,8 +122,9 @@ function App() {
                                 }}>
                                 {symbols.map((data) => (
                                     <option
+                                        key={data.symbol}
                                         value={data.symbol?.toLowerCase()}
-                                        selected={symbol === data.symbol?.toLowerCase()}>
+                                        defaultValue={symbol === data.symbol?.toLowerCase()}>
                                         {data.symbol}
                                     </option>
                                 ))}
@@ -134,7 +142,7 @@ function App() {
                         }}>
                         Crypto Alert{' '}
                         <span className="crypto-alert-emoji">
-                            {isLoading ? '🚀' : 'up' === state ? '😀' : '🙁'}
+                            {isLoading ? '🚀' : isPlaying ? '👹' : 'up' === state ? '😀' : '🙁'}
                         </span>
                     </h1>
                 </div>

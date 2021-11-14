@@ -2,7 +2,7 @@
 
 .crypto-alert {
   animation: gradient 15s ease infinite;
-  background: linear-gradient( -45deg, #000, #393939);
+  background: linear-gradient( -45deg, #000, #1f122c);;
   background-size: 400% 400%;
   border-bottom: none;
   height: 100vh;
@@ -40,7 +40,6 @@
     color: #959595;
     font: 300 80px 'Roboto', sans-serif;
     margin: 0;
-    text-shadow: -0.03em 0 0 red, 0.03em 0 0 cyan;
 
     .crypto-alert--light & {
       color: white;
@@ -54,7 +53,7 @@
 
 .crypto-alert-price {
   font-size: 7vw;
-  font-weight: 300;
+  font-weight: 100;
   letter-spacing: 3px;
   margin: 30px 0;
   transition: all 100ms linear;
@@ -173,7 +172,7 @@
   letter-spacing: 3px;
 
   .crypto-alert--light & {
-    border-color: #e7e7e7;
+    border-color: #9a9a9a;
     color: #000;
   }
 
