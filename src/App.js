@@ -1,6 +1,7 @@
 import './App.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import ToggleButton from './components/ToggleButton';
+import symbols from './symbols';
 
 let lastPrice = 0;
 
@@ -19,7 +20,6 @@ let alert = new Audio('you-suffer-alert.mp3');
 
 function App() {
     const webSocket = useRef(null);
-    const [symbols, setSymbols] = useState([]);
     const [price, setPrice] = useState(0);
     const [state, setState] = useState('');
     const [alertWhen, setAlertWhen] = useState(false);
@@ -44,14 +44,6 @@ function App() {
         };
         return () => webSocket.current.close();
     }, []);
-
-    if (symbols?.length <= 0) {
-        fetch('https://api.binance.com/api/v3/ticker/price')
-            .then((info) => info.json())
-            .then((data) => {
-                setSymbols(data);
-            });
-    }
 
     useEffect(() => {
         // alert not set? return
